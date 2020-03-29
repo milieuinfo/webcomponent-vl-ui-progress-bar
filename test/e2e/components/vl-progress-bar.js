@@ -8,7 +8,8 @@ class VlProgressBar extends VlElement {
     }
 
     async getStep(number) {
-        const element = (await this._getSteps())[--number];
+        const steps = await this._getSteps();
+        const element = steps[--number];
         return new VlProgressBarItem(this.driver, element);
     }
 
