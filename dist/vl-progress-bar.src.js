@@ -34,6 +34,7 @@ export class VlProgressBar extends VlElement(HTMLElement) {
     }
 
     connectedCallback() {
+        this.__observeChildElements(this._processItems.bind(this));
         this._processItems();
         this._progressBar = new window['progress-bar'](this.constructor);
     }
@@ -67,15 +68,22 @@ export class VlProgressBar extends VlElement(HTMLElement) {
     }
 
     _processItems() {
+        this._element.innerHTML = '';
         this._processActiveItem();
         const items = [... this._items].map(item => item.template);
         items.forEach(item => this._element.appendChild(item));
     }
 
     _processActiveItem() {
-        if (!this._activeItem) {
+        if (!this._activeItem && this._items && this._items.length > 0) {
             this._getItem(0).active = true;
         }
+    }
+
+    __observeChildElements(callback) {
+        const observer = new MutationObserver(callback);
+        observer.observe(this, { childList: true, subtree: true });
+        return observer;
     }
 }
 
