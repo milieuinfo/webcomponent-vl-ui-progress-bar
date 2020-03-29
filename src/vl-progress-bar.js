@@ -64,22 +64,9 @@ export class VlProgressBar extends VlElement(HTMLElement) {
         return this._items[index];
     }
 
-    _getItemTemplate(item) {
-        const activeClass = item.active ? 'vl-progress-bar__step--active' : '';
-        const ariaCurrent = item.active ? 'aria-current="step"' : '';
-        return this._template(`
-            <div class="vl-progress-bar__step ${activeClass}">
-                <button class="vl-progress-bar__bullet" ${ariaCurrent} aria-label="${item.text}">
-                    <vl-tooltip placement="top">${item.text}</vl-tooltip>
-                    <span class="vl-u-visually-hidden">${item.text}</span>
-                </button>
-            </div>
-        `);
-    }
-
     _processItems() {
         this._processActiveItem();
-        const items = [... this._items].map(item => this._getItemTemplate(item));
+        const items = [... this._items].map(item => item.template);
         items.forEach(item => this._element.appendChild(item));
     }
 
