@@ -27,26 +27,7 @@
       test('voor elke progress-bar-step zal een progress bar stap gegenereerd worden', () => {
         const progressBar = fixture('vl-progress-bar-fixture');
         const progressBarSteps = progressBar.querySelectorAll('vl-progress-bar-step');
-        progressBarSteps.forEach((element, index) => {
-          const step = progressBar.shadowRoot.querySelectorAll('.vl-progress-bar__step')[index];
-          const bullet = step.querySelector('.vl-progress-bar__bullet');
-          should.exist(step);
-          should.exist(bullet);
-          const containsActiveClass = step.classList.contains('vl-progress-bar__step--active');
-          index == 0 ? assert.isTrue(containsActiveClass) : assert.isFalse(containsActiveClass);
-        });
-      });
-
-      test('voor elke progress-bar-step zal een tooltip gegenereerd worden', () => {
-        const progressBar = fixture('vl-progress-bar-fixture');
-        const progressBarSteps = progressBar.querySelectorAll('vl-progress-bar-step');
-        progressBarSteps.forEach((element, index) => {
-          const step = progressBar.shadowRoot.querySelectorAll('.vl-progress-bar__step')[index];
-          const tooltip = step.querySelector('vl-tooltip');
-          should.exist(tooltip);
-          assert.equal(tooltip.getAttribute('placement'), 'top');
-          assert.equal(tooltip.textContent, element.text);
-        });
+        assert.equal(progressBar.shadowRoot.querySelector('.vl-progress-bar').children.length, progressBarSteps.length);
       });
 
       test('indien er geen active stap is, zal de eerste stap automatisch als actief gezet worden', () => {
@@ -54,20 +35,6 @@
         const progressBarSteps = progressBar.querySelectorAll('vl-progress-bar-step');
         assert.isTrue(progressBarSteps[0].active);
         assert.isFalse(progressBarSteps[1].active);
-      });
-
-      test('als de gebruiker een visuele beperking heeft zal hij er alsnog gebruik van kunnen maken', () => {
-        const progressBar = fixture('vl-progress-bar-fixture');
-        const progressBarSteps = progressBar.querySelectorAll('vl-progress-bar-step');
-        progressBarSteps.forEach((element, index) => {
-          const step = progressBar.shadowRoot.querySelectorAll('.vl-progress-bar__step')[index];
-          const bullet = step.querySelector('.vl-progress-bar__bullet');
-          const text = step.querySelector('.vl-u-visually-hidden');
-          should.exist(text);
-          assert.equal(text.innerText, element.text);
-          assert.equal(bullet.getAttribute('aria-label'), element.text);
-          index == 0 ? assert.equal(bullet.getAttribute('aria-current'), 'step') : assert.isFalse(bullet.hasAttribute('aria-current'));
-        });
       });
 
       test('de active stap kan gewijzigd woren via de API', () => {
@@ -91,7 +58,7 @@
         should.not.exist(progressBar.shadowRoot.querySelectorAll(stepSelector)[1].querySelector(ariaCurrentSelector)); // A11Y
       });
 
-      test('de active stap kan gewijzigd woren via de API en focus krijgen', () => {
+      test('de active stap kan gewijzigd worden via de API en focus krijgen', () => {
         const progressBar = fixture('vl-progress-bar-fixture');
         const progressBarSteps = progressBar.querySelectorAll('vl-progress-bar-step');
         const buttonSelector = '.vl-progress-bar__step button';
@@ -107,11 +74,11 @@
 
       test('zal de stappen verwerken die dynamisch toegevoegd worden', (done) => {
         const progressBar = fixture('vl-progress-bar-fixture');
-        assert.lengthOf(progressBar.shadowRoot.querySelectorAll('.vl-progress-bar__step'), 2);
+        assert.lengthOf(progressBar.shadowRoot.querySelector('.vl-progress-bar').children, 2);
         const step = document.createElement('vl-progress-bar-step');
         progressBar.appendChild(step);
         setTimeout(() => {
-          assert.lengthOf(progressBar.shadowRoot.querySelectorAll('.vl-progress-bar__step'), 3);
+          assert.lengthOf(progressBar.shadowRoot.querySelector('.vl-progress-bar').children, 3);
           done();
         });
       });
