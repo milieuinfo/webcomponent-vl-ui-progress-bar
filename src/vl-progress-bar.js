@@ -2,7 +2,7 @@ import { VlElement, define } from '/node_modules/vl-ui-core/dist/vl-core.js';
 import '/node_modules/@govflanders/vl-ui-util/dist/js/util.js';
 import '/node_modules/@govflanders/vl-ui-progress-bar/dist/js/progress-bar.js';
 import '/node_modules/vl-ui-tooltip/dist/vl-tooltip.js';
-import './vl-progress-bar-step.js';
+import { VlProgressBarStep } from './vl-progress-bar-step.js';
 
 /**
  * VlProgressBar
@@ -47,6 +47,15 @@ export class VlProgressBar extends VlElement(HTMLElement) {
         this._activeStep.active = false;
         this._getStep(number - 1).active = true;
         this._progressBar.updateStep(this._shadow, number, focus);
+    }
+
+    /**
+     * Geeft van elke stap het button element.
+     * 
+     * @return {HTMLElement[]}
+     */
+    get buttons() {
+        return this._element.querySelectorAll(VlProgressBarStep.buttonSelector);
     }
 
     get _classPrefix() {
