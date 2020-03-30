@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <script src="../../../@webcomponents/webcomponentsjs/webcomponents-lite.js"></script>
+  <script src="../../../web-component-tester/browser.js"></script>
+
+  <script type="module" src="../../src/vl-progress-bar.js"></script>
+  <script type="module" src="../../src/vl-progress-bar-step.js"></script>
+</head>
+
+<body>
+  <test-fixture id="vl-progress-bar-step-fixture">
+    <template>
+      <vl-progress-bar-step>Stap 1/2: Aanvraag</vl-progress-bar-step>
+    </template>
+  </test-fixture>
+
+  <script>
+    suite('<vl-progress-bar-step>', () => {
+      const should = chai.should();
+
+      test('de stap tekst kan opgevraagd worden', () => {
+        const step = fixture('vl-progress-bar-step-fixture');
+        assert.equal(step.text, 'Stap 1/2: Aanvraag');
+      });
+
+      test('de stap kan als actief gezet worden via een attribuut', () => {
+        const step = fixture('vl-progress-bar-step-fixture');
+        assert.isFalse(step.active);
+        step.setAttribute('data-vl-active', '');
+        assert.isTrue(step.active);
+        step.removeAttribute('data-vl-active');
+        assert.isFalse(step.active);
+      });
+
+      test('de stap kan als actief gezet worden via de API', () => {
+        const step = fixture('vl-progress-bar-step-fixture');
+        assert.isFalse(step.active);
+        step.active = true;
+        assert.isTrue(step.active);
+        step.active = false;
+        assert.isFalse(step.active);
+      });
+
+      test('de template bevat een container element met daarin een bullet button', () => {
+        const step = fixture('vl-progress-bar-step-fixture');
+        const container = step.template.querySelector('.vl-progress-bar__step');
+        const bullet = container.querySelector('button.vl-progress-bar__bullet');
+        should.exist(container);
+        should.exist(bullet);
+      });
+
+      test('de template maakt een onderscheid bij de rendering voor een actieve en niet actieve stap', () => {
+        const step = fixture('vl-progress-bar-step-fixture');
+        let container = step.template.querySelector('.vl-progress-bar__step');
+        assert.isFalse(container.classList.contains('vl-progress-bar__step--active'));
+        step.active = true;
+        container = step.template.querySelector('.vl-progress-bar__step');
+        assert.isTrue(container.classList.contains('vl-progress-bar__step--active'));
+      });
+
+      test('de template bevat voor elke stap een tooltip met meer informatie over de stap', () => {
+        const step = fixture('vl-progress-bar-step-fixture');
+        const container = step.template.querySelector('.vl-progress-bar__step');
+        const bullet = container.querySelector('button.vl-progress-bar__bullet');
+        const tooltip = bullet.querySelector('vl-tooltip');
+        should.exist(tooltip);
+        assert.equal(tooltip.getAttribute('placement'), 'top');
+        assert.equal(tooltip.textContent, step.text);
+      });
+
+      test('de template zal bij de rendering rekening houden met gebruikers die een visuele beperking hebben', () => {
+        const step = fixture('vl-progress-bar-step-fixture');
+        let container = step.template.querySelector('.vl-progress-bar__step');
+        let bullet = container.querySelector('button.vl-progress-bar__bullet');
+        const text = bullet.querySelector('.vl-u-visually-hidden');
+        should.exist(text);
+        assert.equal(text.innerText, step.text);
+        assert.equal(bullet.getAttribute('aria-label'), step.text);
+        assert.isFalse(bullet.hasAttribute('aria-current'))
+        step.active = true;
+        container = step.template.querySelector('.vl-progress-bar__step');
+        bullet = container.querySelector('button.vl-progress-bar__bullet');
+        assert.equal(bullet.getAttribute('aria-current'), 'step')
+      });
+    });
+  </script>
+</body>
+
+</html>
