@@ -67,12 +67,12 @@ export class VlProgressBar extends VlElement(HTMLElement) {
 
     _processSteps() {
         this._element.innerHTML = '';
-        this._processActiveStep();
+        this._setFirstStepAsActiveWhenThereIsNoActiveStepDefined();
         const steps = [... this._steps].map(step => step.template);
         steps.forEach(step => this._element.appendChild(step));
     }
 
-    _processActiveStep() {
+    _setFirstStepAsActiveWhenThereIsNoActiveStepDefined() {
         if (!this._activeStep && this._steps && this._steps.length > 0) {
             this._getStep(0).active = true;
         }
