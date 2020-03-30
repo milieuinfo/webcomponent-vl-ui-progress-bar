@@ -2,7 +2,7 @@ const { VlElement } = require('vl-ui-core').Test;
 const { VlTooltip } = require('vl-ui-tooltip').Test;
 const { By } = require('vl-ui-core').Test.Setup;
 
-class VlProgressBarItem extends VlElement {  
+class VlProgressBarStep extends VlElement {  
     async hover() {
         const button = await this._getButton();
         return button.hover();
@@ -28,4 +28,4 @@ class VlProgressBarItem extends VlElement {
     }
 }
 
-module.exports = VlProgressBarItem;
+module.exports = VlProgressBarStep;

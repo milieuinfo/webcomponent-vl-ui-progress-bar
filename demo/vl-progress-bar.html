@@ -5,7 +5,7 @@
     <title>vl-progress-bar voorbeeld</title>
     <script type="module" src="demo.js"></script>
     <script type="module" src="/src/vl-progress-bar.js"></script>
-    <script type="module" src="/src/vl-progress-bar-item.js"></script>
+    <script type="module" src="/src/vl-progress-bar-step.js"></script>
     <script type="module" src="/node_modules/vl-ui-button/dist/vl-button.js"></script>
 
     <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-core/dist/style.css" />
@@ -24,17 +24,17 @@
         <pre>
             <code class="line-numbers language-markup">
                 &lt;vl-progress-bar id="progress-bar"&gt;
-                    &lt;vl-progress-bar-item&gt;Stap 1/3: Aanvraag&lt;/vl-progress-bar-item&gt;
-                    &lt;vl-progress-bar-item&gt;Stap 2/3: Gegevens&lt;/vl-progress-bar-item&gt;
-                    &lt;vl-progress-bar-item&gt;Stap 3/3: Bevestigen&lt;/vl-progress-bar-item&gt;
+                    &lt;vl-progress-bar-step&gt;Stap 1/3: Aanvraag&lt;/vl-progress-bar-step&gt;
+                    &lt;vl-progress-bar-step&gt;Stap 2/3: Gegevens&lt;/vl-progress-bar-step&gt;
+                    &lt;vl-progress-bar-step&gt;Stap 3/3: Bevestigen&lt;/vl-progress-bar-step&gt;
                 &lt;/vl-progress-bar&gt;
             </code>
         </pre>
         <div class="demo">
             <vl-progress-bar id="progress-bar">
-                <vl-progress-bar-item>Stap 1/3: Aanvraag</vl-progress-bar-item>
-                <vl-progress-bar-item>Stap 2/3: Gegevens</vl-progress-bar-item>
-                <vl-progress-bar-item>Stap 3/3: Bevestigen</vl-progress-bar-item>
+                <vl-progress-bar-step>Stap 1/3: Aanvraag</vl-progress-bar-step>
+                <vl-progress-bar-step>Stap 2/3: Gegevens</vl-progress-bar-step>
+                <vl-progress-bar-step>Stap 3/3: Bevestigen</vl-progress-bar-step>
             </vl-progress-bar>
         </div>
     </div>
@@ -44,17 +44,17 @@
         <pre>
             <code class="line-numbers language-markup">
                 &lt;vl-progress-bar id="progress-bar-numeric" data-vl-numeric&gt;
-                    &lt;vl-progress-bar-item&gt;Stap 1/3: Aanvraag&lt;/vl-progress-bar-item&gt;
-                    &lt;vl-progress-bar-item&gt;Stap 2/3: Gegevens&lt;/vl-progress-bar-item&gt;
-                    &lt;vl-progress-bar-item&gt;Stap 3/3: Bevestigen&lt;/vl-progress-bar-item&gt;
+                    &lt;vl-progress-bar-step&gt;Stap 1/3: Aanvraag&lt;/vl-progress-bar-step&gt;
+                    &lt;vl-progress-bar-step&gt;Stap 2/3: Gegevens&lt;/vl-progress-bar-step&gt;
+                    &lt;vl-progress-bar-step&gt;Stap 3/3: Bevestigen&lt;/vl-progress-bar-step&gt;
                 &lt;/vl-progress-bar&gt;
             </code>
         </pre>
         <div class="demo">
             <vl-progress-bar id="progress-bar-numeric" data-vl-numeric>
-                <vl-progress-bar-item>Stap 1/3: Aanvraag</vl-progress-bar-item>
-                <vl-progress-bar-item>Stap 2/3: Gegevens</vl-progress-bar-item>
-                <vl-progress-bar-item>Stap 3/3: Bevestigen</vl-progress-bar-item>
+                <vl-progress-bar-step>Stap 1/3: Aanvraag</vl-progress-bar-step>
+                <vl-progress-bar-step>Stap 2/3: Gegevens</vl-progress-bar-step>
+                <vl-progress-bar-step>Stap 3/3: Bevestigen</vl-progress-bar-step>
             </vl-progress-bar>
         </div>
     </div>
@@ -64,9 +64,9 @@
         <pre>
             <code class="line-numbers language-markup">
                 &lt;vl-progress-bar id="progress-bar-interactive" data-vl-numeric&gt;
-                    &lt;vl-progress-bar-item&gt;Stap 1/3: Aanvraag&lt;/vl-progress-bar-item&gt;
-                    &lt;vl-progress-bar-item&gt;Stap 2/3: Gegevens&lt;/vl-progress-bar-item&gt;
-                    &lt;vl-progress-bar-item data-vl-active&gt;Stap 3/3: Bevestigen&lt;/vl-progress-bar-item&gt;
+                    &lt;vl-progress-bar-step&gt;Stap 1/3: Aanvraag&lt;/vl-progress-bar-step&gt;
+                    &lt;vl-progress-bar-step&gt;Stap 2/3: Gegevens&lt;/vl-progress-bar-step&gt;
+                    &lt;vl-progress-bar-step data-vl-active&gt;Stap 3/3: Bevestigen&lt;/vl-progress-bar-step&gt;
                 &lt;/vl-progress-bar&gt;
                 &lt;div style="margin-top: 25px;"&gt;
                     &lt;button id="progress-bar-interactive-step-1-button" is="vl-button" type="button" onclick="document.querySelector('#progress-bar-interactive').updateStep(1, false);"&gt;Activeer stap 1&lt;/button&gt;
@@ -77,9 +77,9 @@
         </pre>
         <div class="demo">
             <vl-progress-bar id="progress-bar-interactive" data-vl-numeric>
-                <vl-progress-bar-item>Stap 1/3: Aanvraag</vl-progress-bar-item>
-                <vl-progress-bar-item>Stap 2/3: Gegevens</vl-progress-bar-item>
-                <vl-progress-bar-item data-vl-active>Stap 3/3: Bevestigen</vl-progress-bar-item>
+                <vl-progress-bar-step>Stap 1/3: Aanvraag</vl-progress-bar-step>
+                <vl-progress-bar-step>Stap 2/3: Gegevens</vl-progress-bar-step>
+                <vl-progress-bar-step data-vl-active>Stap 3/3: Bevestigen</vl-progress-bar-step>
             </vl-progress-bar>
             <div style="margin-top: 25px;">
                 <button id="progress-bar-interactive-step-1-button" is="vl-button" type="button" onclick="document.querySelector('#progress-bar-interactive').updateStep(1, false);">Activeer stap 1</button>
@@ -94,9 +94,9 @@
         <pre>
             <code class="line-numbers language-markup">
                 &lt;vl-progress-bar id="progress-bar-interactive-focus" data-vl-numeric&gt;
-                    &lt;vl-progress-bar-item&gt;Stap 1/3: Aanvraag&lt;/vl-progress-bar-item&gt;
-                    &lt;vl-progress-bar-item&gt;Stap 2/3: Gegevens&lt;/vl-progress-bar-item&gt;
-                    &lt;vl-progress-bar-item data-vl-active&gt;Stap 3/3: Bevestigen&lt;/vl-progress-bar-item&gt;
+                    &lt;vl-progress-bar-step&gt;Stap 1/3: Aanvraag&lt;/vl-progress-bar-step&gt;
+                    &lt;vl-progress-bar-step&gt;Stap 2/3: Gegevens&lt;/vl-progress-bar-step&gt;
+                    &lt;vl-progress-bar-step data-vl-active&gt;Stap 3/3: Bevestigen&lt;/vl-progress-bar-step&gt;
                 &lt;/vl-progress-bar&gt;
                 &lt;div style="margin-top: 25px;"&gt;
                     &lt;button id="progress-bar-interactive-focus-step-1-button" is="vl-button" type="button" onclick="document.querySelector('#progress-bar-interactive-focus').updateStep(1);"&gt;Focus stap 1&lt;/button&gt;
@@ -107,9 +107,9 @@
         </pre>
         <div class="demo">
             <vl-progress-bar id="progress-bar-interactive-focus" data-vl-numeric>
-                <vl-progress-bar-item>Stap 1/3: Aanvraag</vl-progress-bar-item>
-                <vl-progress-bar-item>Stap 2/3: Gegevens</vl-progress-bar-item>
-                <vl-progress-bar-item data-vl-active>Stap 3/3: Bevestigen</vl-progress-bar-item>
+                <vl-progress-bar-step>Stap 1/3: Aanvraag</vl-progress-bar-step>
+                <vl-progress-bar-step>Stap 2/3: Gegevens</vl-progress-bar-step>
+                <vl-progress-bar-step data-vl-active>Stap 3/3: Bevestigen</vl-progress-bar-step>
             </vl-progress-bar>
             <div style="margin-top: 25px;">
                 <button id="progress-bar-interactive-focus-step-1-button" is="vl-button" type="button" onclick="document.querySelector('#progress-bar-interactive-focus').updateStep(1);">Focus stap 1</button>

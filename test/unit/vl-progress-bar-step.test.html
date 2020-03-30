@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <script src="../../../@webcomponents/webcomponentsjs/webcomponents-lite.js"></script>
+  <script src="../../../web-component-tester/browser.js"></script>
+
+  <script type="module" src="../../src/vl-progress-bar.js"></script>
+  <script type="module" src="../../src/vl-progress-bar-step.js"></script>
+</head>
+
+<body>
+  <test-fixture id="vl-progress-bar-fixture">
+    <template>
+      <vl-progress-bar>
+        <vl-progress-bar-step data-vl-active>Stap 1/2: Aanvraag</vl-progress-bar-step>
+        <vl-progress-bar-step>Stap 2/2: Bevestigen</vl-progress-bar-step>
+      </vl-progress-bar>
+    </template>
+  </test-fixture>
+
+  <script>
+    suite('<vl-progress-bar-step>', () => {
+      const should = chai.should();
+
+      test('de stap tekst kan opgevraagd worden', () => {
+        const progressBar = fixture('vl-progress-bar-fixture');
+        const progressBarSteps = progressBar.querySelectorAll('vl-progress-bar-step');
+        assert.equal(progressBarSteps[0].text, 'Stap 1/2: Aanvraag');
+        assert.equal(progressBarSteps[1].text, 'Stap 2/2: Bevestigen');
+      });
+
+      test('de stap kan als actief gezet worden via een attribuut', () => {
+        const progressBar = fixture('vl-progress-bar-fixture');
+        const progressBarSteps = progressBar.querySelectorAll('vl-progress-bar-step');
+        assert.isTrue(progressBarSteps[0].active);
+        assert.isFalse(progressBarSteps[1].active);
+        progressBarSteps[0].removeAttribute('data-vl-active');
+        assert.isFalse(progressBarSteps[0].active);
+        assert.isFalse(progressBarSteps[1].active);
+        progressBarSteps[0].setAttribute('data-vl-active', '');
+        assert.isTrue(progressBarSteps[0].active);
+        assert.isFalse(progressBarSteps[1].active);
+      });
+
+      test('de stap kan als actief gezet worden via de API', () => {
+        const progressBar = fixture('vl-progress-bar-fixture');
+        const progressBarSteps = progressBar.querySelectorAll('vl-progress-bar-step');
+        assert.isTrue(progressBarSteps[0].active);
+        assert.isFalse(progressBarSteps[1].active);
+        progressBarSteps[0].active = false;
+        assert.isFalse(progressBarSteps[0].active);
+        assert.isFalse(progressBarSteps[1].active);
+        progressBarSteps[0].active = true;
+        assert.isTrue(progressBarSteps[0].active);
+        assert.isFalse(progressBarSteps[1].active);
+      });
+    });
+
+  </script>
+</body>
+
+</html>

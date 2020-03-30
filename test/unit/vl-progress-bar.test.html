@@ -7,15 +7,15 @@
   <script src="../../../web-component-tester/browser.js"></script>
 
   <script type="module" src="../../src/vl-progress-bar.js"></script>
-  <script type="module" src="../../src/vl-progress-bar-item.js"></script>
+  <script type="module" src="../../src/vl-progress-bar-step.js"></script>
 </head>
 
 <body>
   <test-fixture id="vl-progress-bar-fixture">
     <template>
       <vl-progress-bar>
-        <vl-progress-bar-item>Stap 1/2: Aanvraag</vl-progress-bar-item>
-        <vl-progress-bar-item>Stap 2/2: Bevestigen</vl-progress-bar-item>
+        <vl-progress-bar-step>Stap 1/2: Aanvraag</vl-progress-bar-step>
+        <vl-progress-bar-step>Stap 2/2: Bevestigen</vl-progress-bar-step>
       </vl-progress-bar>
     </template>
   </test-fixture>
@@ -24,10 +24,10 @@
     suite('<vl-progress-bar>', () => {
       const should = chai.should();
 
-      test('voor elke progress-bar-item zal een progress bar stap gegenereerd worden', () => {
+      test('voor elke progress-bar-step zal een progress bar stap gegenereerd worden', () => {
         const progressBar = fixture('vl-progress-bar-fixture');
-        const progressBarItems = progressBar.querySelectorAll('vl-progress-bar-item');
-        progressBarItems.forEach((item, index) => {
+        const progressBarSteps = progressBar.querySelectorAll('vl-progress-bar-step');
+        progressBarSteps.forEach((element, index) => {
           const step = progressBar.shadowRoot.querySelectorAll('.vl-progress-bar__step')[index];
           const bullet = step.querySelector('.vl-progress-bar__bullet');
           should.exist(step);
@@ -37,63 +37,63 @@
         });
       });
 
-      test('voor elke progress-bar-item zal een tooltip gegenereerd worden', () => {
+      test('voor elke progress-bar-step zal een tooltip gegenereerd worden', () => {
         const progressBar = fixture('vl-progress-bar-fixture');
-        const progressBarItems = progressBar.querySelectorAll('vl-progress-bar-item');
-        progressBarItems.forEach((item, index) => {
+        const progressBarSteps = progressBar.querySelectorAll('vl-progress-bar-step');
+        progressBarSteps.forEach((element, index) => {
           const step = progressBar.shadowRoot.querySelectorAll('.vl-progress-bar__step')[index];
           const tooltip = step.querySelector('vl-tooltip');
           should.exist(tooltip);
           assert.equal(tooltip.getAttribute('placement'), 'top');
-          assert.equal(tooltip.textContent, item.text);
+          assert.equal(tooltip.textContent, element.text);
         });
       });
 
       test('indien er geen active stap is, zal de eerste stap automatisch als actief gezet worden', () => {
         const progressBar = fixture('vl-progress-bar-fixture');
-        const progressBarItems = progressBar.querySelectorAll('vl-progress-bar-item');
-        assert.isTrue(progressBarItems[0].active);
-        assert.isFalse(progressBarItems[1].active);
+        const progressBarSteps = progressBar.querySelectorAll('vl-progress-bar-step');
+        assert.isTrue(progressBarSteps[0].active);
+        assert.isFalse(progressBarSteps[1].active);
       });
 
       test('als de gebruiker een visuele beperking heeft zal hij er alsnog gebruik van kunnen maken', () => {
         const progressBar = fixture('vl-progress-bar-fixture');
-        const progressBarItems = progressBar.querySelectorAll('vl-progress-bar-item');
-        progressBarItems.forEach((item, index) => {
+        const progressBarSteps = progressBar.querySelectorAll('vl-progress-bar-step');
+        progressBarSteps.forEach((element, index) => {
           const step = progressBar.shadowRoot.querySelectorAll('.vl-progress-bar__step')[index];
           const bullet = step.querySelector('.vl-progress-bar__bullet');
           const text = step.querySelector('.vl-u-visually-hidden');
           should.exist(text);
-          assert.equal(text.innerText, item.text);
-          assert.equal(bullet.getAttribute('aria-label'), item.text);
+          assert.equal(text.innerText, element.text);
+          assert.equal(bullet.getAttribute('aria-label'), element.text);
           index == 0 ? assert.equal(bullet.getAttribute('aria-current'), 'step') : assert.isFalse(bullet.hasAttribute('aria-current'));
         });
       });
 
       test('de active stap kan gewijzigd woren via de API', () => {
         const progressBar = fixture('vl-progress-bar-fixture');
-        const progressBarItems = progressBar.querySelectorAll('vl-progress-bar-item');
+        const progressBarSteps = progressBar.querySelectorAll('vl-progress-bar-step');
         const stepSelector = '.vl-progress-bar__step';
         const ariaCurrentSelector = '.vl-progress-bar__bullet[aria-current="step"]';
-        assert.isTrue(progressBarItems[0].active);
-        assert.isFalse(progressBarItems[1].active);
+        assert.isTrue(progressBarSteps[0].active);
+        assert.isFalse(progressBarSteps[1].active);
         should.exist(progressBar.shadowRoot.querySelectorAll(stepSelector)[0].querySelector(ariaCurrentSelector)); // A11Y
         should.not.exist(progressBar.shadowRoot.querySelectorAll(stepSelector)[1].querySelector(ariaCurrentSelector)); // A11Y
         progressBar.updateStep(2);
-        assert.isFalse(progressBarItems[0].active);
-        assert.isTrue(progressBarItems[1].active);
+        assert.isFalse(progressBarSteps[0].active);
+        assert.isTrue(progressBarSteps[1].active);
         should.not.exist(progressBar.shadowRoot.querySelectorAll(stepSelector)[0].querySelector(ariaCurrentSelector)); // A11Y
         should.exist(progressBar.shadowRoot.querySelectorAll(stepSelector)[1].querySelector(ariaCurrentSelector)); // A11Y
         progressBar.updateStep(1);
-        assert.isTrue(progressBarItems[0].active);
-        assert.isFalse(progressBarItems[1].active);
+        assert.isTrue(progressBarSteps[0].active);
+        assert.isFalse(progressBarSteps[1].active);
         should.exist(progressBar.shadowRoot.querySelectorAll(stepSelector)[0].querySelector(ariaCurrentSelector)); // A11Y
         should.not.exist(progressBar.shadowRoot.querySelectorAll(stepSelector)[1].querySelector(ariaCurrentSelector)); // A11Y
       });
 
       test('de active stap kan gewijzigd woren via de API en focus krijgen', () => {
         const progressBar = fixture('vl-progress-bar-fixture');
-        const progressBarItems = progressBar.querySelectorAll('vl-progress-bar-item');
+        const progressBarSteps = progressBar.querySelectorAll('vl-progress-bar-step');
         const buttonSelector = '.vl-progress-bar__step button';
         assert.notEqual(progressBar.shadowRoot.activeElement, progressBar.shadowRoot.querySelectorAll(buttonSelector)[0]);
         assert.notEqual(progressBar.shadowRoot.activeElement, progressBar.shadowRoot.querySelectorAll(buttonSelector)[1]);
@@ -108,15 +108,14 @@
       test('zal de stappen verwerken die dynamisch toegevoegd worden', (done) => {
         const progressBar = fixture('vl-progress-bar-fixture');
         assert.lengthOf(progressBar.shadowRoot.querySelectorAll('.vl-progress-bar__step'), 2);
-        const item = document.createElement('vl-progress-bar-item');
-        progressBar.appendChild(item);
+        const step = document.createElement('vl-progress-bar-step');
+        progressBar.appendChild(step);
         setTimeout(() => {
           assert.lengthOf(progressBar.shadowRoot.querySelectorAll('.vl-progress-bar__step'), 3);
           done();
         });
       });
     });
-
   </script>
 </body>
 

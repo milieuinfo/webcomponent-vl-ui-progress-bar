@@ -1,6 +1,6 @@
 const { VlElement } = require('vl-ui-core').Test;
 const { By } = require('vl-ui-core').Test.Setup;
-const VlProgressBarItem = require('../components/vl-progress-bar-item');
+const VlProgressBarStep = require('../components/vl-progress-bar-step');
 
 class VlProgressBar extends VlElement {  
     async isNumeric() {
@@ -10,7 +10,7 @@ class VlProgressBar extends VlElement {
     async getStep(number) {
         const steps = await this._getSteps();
         const element = steps[--number];
-        return new VlProgressBarItem(this.driver, element);
+        return new VlProgressBarStep(this.driver, element);
     }
 
     async _getSteps() {

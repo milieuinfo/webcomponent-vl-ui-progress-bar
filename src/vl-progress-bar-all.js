@@ -1,7 +1,7 @@
 import { VlProgressBar } from "/src/vl-progress-bar.js";
-import { VlProgressBarItem } from "/src/vl-progress-bar-item.js";
+import { VlProgressBarStep } from "/src/vl-progress-bar-step.js";
 
 export {
     VlProgressBar, 
-    VlProgressBarItem
+    VlProgressBarStep
 };
