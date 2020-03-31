@@ -2,7 +2,7 @@ import { VlElement, define } from 'vl-ui-core';
 import '@govflanders/vl-ui-util/dist/js/util.js';
 import '@govflanders/vl-ui-progress-bar/dist/js/progress-bar.js';
 import 'vl-ui-tooltip';
-import './vl-progress-bar-item.js';
+import { VlProgressBarStep } from './vl-progress-bar-step.js';
 
 /**
  * VlProgressBar
@@ -34,8 +34,8 @@ export class VlProgressBar extends VlElement(HTMLElement) {
     }
 
     connectedCallback() {
-        this.__observeChildElements(this._processItems.bind(this));
-        this._processItems();
+        this.__observeChildElements(this._processSteps.bind(this));
+        this._processSteps();
         this._progressBar = new window['progress-bar'](this.constructor);
     }
 
@@ -46,37 +46,46 @@ export class VlProgressBar extends VlElement(HTMLElement) {
      * @param {boolean} focus - Focus bepaalt of de stap in de progress bar focus krijgt.
      */
     updateStep(number, focus) {
-        this._activeItem.active = false;
-        this._getItem(number - 1).active = true;
+        this._activeStep.active = false;
+        this._getStep(number - 1).active = true;
         this._progressBar.updateStep(this._shadow, number, focus);
+    }
+
+    /**
+     * Geeft van elke stap het button element.
+     * 
+     * @return {HTMLElement[]}
+     */
+    get buttons() {
+        return this._element.querySelectorAll(VlProgressBarStep.buttonSelector);
     }
 
     get _classPrefix() {
         return 'vl-progress-bar--'
     }
 
-    get _items() {
-        return this.querySelectorAll('vl-progress-bar-item');
+    get _steps() {
+        return this.querySelectorAll('vl-progress-bar-step');
     }
 
-    get _activeItem() {
-        return this.querySelector('vl-progress-bar-item[data-vl-active]');
+    get _activeStep() {
+        return this.querySelector('vl-progress-bar-step[data-vl-active]');
     }
 
-    _getItem(index) {
-        return this._items[index];
+    _getStep(index) {
+        return this._steps[index];
     }
 
-    _processItems() {
+    _processSteps() {
         this._element.innerHTML = '';
-        this._processActiveItem();
-        const items = [... this._items].map(item => item.template);
-        items.forEach(item => this._element.appendChild(item));
+        this._setFirstStepAsActiveWhenThereIsNoActiveStepDefined();
+        const steps = [... this._steps].map(step => step.template);
+        steps.forEach(step => this._element.appendChild(step));
     }
 
-    _processActiveItem() {
-        if (!this._activeItem && this._items && this._items.length > 0) {
-            this._getItem(0).active = true;
+    _setFirstStepAsActiveWhenThereIsNoActiveStepDefined() {
+        if (!this._activeStep && this._steps && this._steps.length > 0) {
+            this._getStep(0).active = true;
         }
     }
 
