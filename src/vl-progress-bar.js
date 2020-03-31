@@ -50,6 +50,15 @@ export class VlProgressBar extends VlElement(HTMLElement) {
     }
 
     /**
+     * Geeft de progress bar DOM
+     * 
+     * @return {HTMLElement}
+     */
+    get element() {
+        return this._element;
+    }
+
+    /**
      * Geeft van elke stap het button element.
      * 
      * @return {HTMLElement[]}
