@@ -2,7 +2,7 @@ import { VlElement, define } from '/node_modules/vl-ui-core/dist/vl-core.js';
 import '/node_modules/@govflanders/vl-ui-util/dist/js/util.js';
 import '/node_modules/@govflanders/vl-ui-progress-bar/dist/js/progress-bar.js';
 import '/node_modules/vl-ui-tooltip/dist/vl-tooltip.js';
-import './vl-progress-bar-step.js';
+import { VlProgressBarStep } from './vl-progress-bar-step.js';
 
 /**
  * VlProgressBar
@@ -10,6 +10,8 @@ import './vl-progress-bar-step.js';
  * @classdesc Gebruik de progress-bar component om de vooruitgang te laten zien van een proces dat uit verschillende stappen bestaat.
  * 
  * @extends VlElement
+ * 
+ * @property {boolean} data-vl-numeric - Attribuut zorgt ervoor dat er nummers getoond worden in de progress bar per stap.
  * 
  * @see {@link https://www.github.com/milieuinfo/webcomponent-vl-ui-progress-bar/releases/latest|Release notes}
  * @see {@link https://www.github.com/milieuinfo/webcomponent-vl-ui-progress-bar/issues|Issues}
@@ -47,6 +49,24 @@ export class VlProgressBar extends VlElement(HTMLElement) {
         this._activeStep.active = false;
         this._getStep(number - 1).active = true;
         this._progressBar.updateStep(this._shadow, number, focus);
+    }
+
+    /**
+     * Geeft de progress bar DOM
+     * 
+     * @return {HTMLElement}
+     */
+    get element() {
+        return this._element;
+    }
+
+    /**
+     * Geeft van elke stap het button element.
+     * 
+     * @return {HTMLElement[]}
+     */
+    get buttons() {
+        return this._element.querySelectorAll(VlProgressBarStep._buttonSelector);
     }
 
     get _classPrefix() {

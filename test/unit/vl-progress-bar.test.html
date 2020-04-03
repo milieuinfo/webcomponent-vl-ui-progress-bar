@@ -82,6 +82,16 @@
           done();
         });
       });
+
+      test('de progress bar DOM kan opgevraagd worden', () => {
+        const progressBar = fixture('vl-progress-bar-fixture');
+        assert.deepEqual(progressBar.shadowRoot.querySelector('.vl-progress-bar'), progressBar.element);
+      });
+
+      test('de stappen button elementen kunnen opgevraagd worden', () => {
+        const progressBar = fixture('vl-progress-bar-fixture');
+        assert.deepEqual(progressBar.shadowRoot.querySelectorAll('.vl-progress-bar button'), progressBar.buttons);
+      });
     });
   </script>
 </body>

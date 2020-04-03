@@ -1,7 +1,7 @@
 import { VlElement, define } from 'vl-ui-core';
 
 /**
- * VlProgressBarItem
+ * VlProgressBarStep
  * @class
  * @classdesc Onderdeel van de progress-bar die een stap voorstelt van een proces dat uit verschillende stappen bestaat.
  * 
@@ -11,12 +11,21 @@ import { VlElement, define } from 'vl-ui-core';
  * 
  * @see {@link https://www.github.com/milieuinfo/webcomponent-vl-ui-progress-bar/releases/latest|Release notes}
  * @see {@link https://www.github.com/milieuinfo/webcomponent-vl-ui-progress-bar/issues|Issues}
- * @see {@link https://webcomponenten.omgeving.vlaanderen.be/demo/vl-progress-bar-item.html|Demo}
+ * @see {@link https://webcomponenten.omgeving.vlaanderen.be/demo/vl-progress-bar-step.html|Demo}
  * 
  */
-export class VlProgressBarItem extends VlElement(HTMLElement) {
+export class VlProgressBarStep extends VlElement(HTMLElement) {
     /**
-     * Geeft de tekst van de progress bar item.
+     * Geeft de selector om het button element te bekomen. 
+     *
+     * @return {String}
+     */
+    static get buttonSelector() {
+        return 'button.vl-progress-bar__bullet';
+    }
+    
+    /**
+     * Geeft de tekst van de progress bar stap.
      * 
      * @return {string}
      */
@@ -25,7 +34,7 @@ export class VlProgressBarItem extends VlElement(HTMLElement) {
     }
 
     /**
-     * Geeft terug of de progress bar item actief is.
+     * Geeft terug of de progress bar stap actief is.
      * 
      * @return {boolean}
      */
@@ -47,7 +56,7 @@ export class VlProgressBarItem extends VlElement(HTMLElement) {
     }
 
     /**
-     * Bepaal of de progress bar item actief is.
+     * Bepaal of de progress bar stap actief is.
      * 
      * @param {boolean} value
      */
@@ -56,4 +65,4 @@ export class VlProgressBarItem extends VlElement(HTMLElement) {
     }
 }
 
-define('vl-progress-bar-item', VlProgressBarItem);
+define('vl-progress-bar-step', VlProgressBarStep);
