@@ -15,12 +15,7 @@ import { VlElement, define } from '/node_modules/vl-ui-core/dist/vl-core.js';
  * 
  */
 export class VlProgressBarStep extends VlElement(HTMLElement) {
-    /**
-     * Geeft de selector om het button element te bekomen. 
-     *
-     * @return {String}
-     */
-    static get buttonSelector() {
+    static get _buttonSelector() {
         return 'button.vl-progress-bar__bullet';
     }
     

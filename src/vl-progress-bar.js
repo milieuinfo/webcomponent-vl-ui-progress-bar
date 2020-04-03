@@ -66,7 +66,7 @@ export class VlProgressBar extends VlElement(HTMLElement) {
      * @return {HTMLElement[]}
      */
     get buttons() {
-        return this._element.querySelectorAll(VlProgressBarStep.buttonSelector);
+        return this._element.querySelectorAll(VlProgressBarStep._buttonSelector);
     }
 
     get _classPrefix() {
