@@ -11,6 +11,8 @@ import { VlProgressBarStep } from './vl-progress-bar-step.js';
  * 
  * @extends VlElement
  * 
+ * @property {boolean} data-vl-numeric - Attribuut zorgt ervoor dat er nummers getoond worden in de progress bar per stap.
+ * 
  * @see {@link https://www.github.com/milieuinfo/webcomponent-vl-ui-progress-bar/releases/latest|Release notes}
  * @see {@link https://www.github.com/milieuinfo/webcomponent-vl-ui-progress-bar/issues|Issues}
  * @see {@link https://webcomponenten.omgeving.vlaanderen.be/demo/vl-progress-bar.html|Demo}
@@ -66,7 +68,7 @@ export class VlProgressBar extends VlElement(HTMLElement) {
      * @return {HTMLElement[]}
      */
     get buttons() {
-        return this._element.querySelectorAll(VlProgressBarStep.buttonSelector);
+        return this._element.querySelectorAll(VlProgressBarStep._buttonSelector);
     }
 
     get _classPrefix() {
