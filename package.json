@@ -54,8 +54,6 @@
 		"vl-ui-tooltip": "^3.0.3"
 	},
 	"devDependencies": {
-		"@govflanders/vl-ui-util": "3.9.1",
-		"@govflanders/vl-ui-progress-bar": "3.9.1",
 		"vl-ui-util": "5.0.10",
 		"vl-ui-button": "^5.0.0"
 	}
