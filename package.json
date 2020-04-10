@@ -1,6 +1,6 @@
 {
 	"name": "vl-ui-progress-bar",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Gebruik de progress-bar component om de vooruitgang te laten zien van een proces dat uit verschillende stappen bestaat.",
 	"author": "DIDM",
 	"license": "MIT",
