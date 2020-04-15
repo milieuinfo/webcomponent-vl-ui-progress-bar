@@ -54,7 +54,7 @@
 		"vl-ui-tooltip": "^3.0.3"
 	},
 	"devDependencies": {
-		"vl-ui-util": "5.0.10",
-		"vl-ui-button": "^5.0.0"
+		"vl-ui-button": "^5.0.0",
+		"vl-ui-util": "^5.1.6"
 	}
 }
