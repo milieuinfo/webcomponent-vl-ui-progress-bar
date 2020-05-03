@@ -34,9 +34,13 @@ export class VlProgressBar extends VlElement(HTMLElement) {
     }
 
     connectedCallback() {
-        this.__observeChildElements(this._processSteps.bind(this));
+        this._observer = this.__observeChildElements(this._processSteps.bind(this));
         this._processSteps();
         this._progressBar = new window['progress-bar'](this.constructor);
+    }
+
+    disconnectedCallback() {
+        this._observer.disconnect();
     }
 
     /**
