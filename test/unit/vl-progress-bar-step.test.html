@@ -78,11 +78,11 @@
         should.exist(text);
         assert.equal(text.innerText, step.text);
         assert.equal(bullet.getAttribute('aria-label'), step.text);
-        assert.isFalse(bullet.hasAttribute('aria-current'))
+        assert.isFalse(bullet.hasAttribute('aria-current'));
         step.active = true;
         container = step.template.querySelector('.vl-progress-bar__step');
         bullet = container.querySelector('button.vl-progress-bar__bullet');
-        assert.equal(bullet.getAttribute('aria-current'), 'step')
+        assert.equal(bullet.getAttribute('aria-current'), 'step');
       });
     });
   </script>

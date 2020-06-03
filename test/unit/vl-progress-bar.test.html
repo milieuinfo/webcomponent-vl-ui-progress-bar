@@ -60,7 +60,6 @@
 
       test('de active stap kan gewijzigd worden via de API en focus krijgen', () => {
         const progressBar = fixture('vl-progress-bar-fixture');
-        const progressBarSteps = progressBar.querySelectorAll('vl-progress-bar-step');
         const buttonSelector = '.vl-progress-bar__step button';
         assert.notEqual(progressBar.shadowRoot.activeElement, progressBar.shadowRoot.querySelectorAll(buttonSelector)[0]);
         assert.notEqual(progressBar.shadowRoot.activeElement, progressBar.shadowRoot.querySelectorAll(buttonSelector)[1]);

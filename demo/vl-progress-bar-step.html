@@ -3,7 +3,8 @@
 
 <head>
     <title>vl-progress-bar voorbeeld</title>
-    <script type="module" src="demo.js"></script>
+    <script type="module" src="/node_modules/vl-ui-demo/dist/vl-demo-all.js"></script>
+
     <script type="module" src="/src/vl-progress-bar.js"></script>
     <script type="module" src="/src/vl-progress-bar-step.js"></script>
 
@@ -11,42 +12,9 @@
 </head>
 
 <body>
-    <h1>vl-ui-progress-bar-step demo</h1>
-    <p>
-        <a href="https://overheid.vlaanderen.be/webuniversum/v3/documentation/components/vl-ui-progress-bar">
-            Meer voorbeelden en documentatie</a>.
-    </p>
-
-    <div>
-        <h2>Progress bar active</h2>
-        <pre>
-            <code class="line-numbers language-markup">
-                &lt;vl-progress-bar data-vl-numeric&gt;
-                    &lt;vl-progress-bar-step&gt;Stap 1/3: Aanvraag&lt;/vl-progress-bar-step&gt;
-                    &lt;vl-progress-bar-step&gt;Stap 2/3: Gegevens&lt;/vl-progress-bar-step&gt;
-                    &lt;vl-progress-bar-step&gt;Stap 3/3: Bevestigen&lt;/vl-progress-bar-step&gt;
-                &lt;/vl-progress-bar&gt;
-    
-                &lt;vl-progress-bar data-vl-numeric&gt;
-                    &lt;vl-progress-bar-step data-vl-active&gt;Stap 1/3: Aanvraag&lt;/vl-progress-bar-step&gt;
-                    &lt;vl-progress-bar-step&gt;Stap 2/3: Gegevens&lt;/vl-progress-bar-step&gt;
-                    &lt;vl-progress-bar-step&gt;Stap 3/3: Bevestigen&lt;/vl-progress-bar-step&gt;
-                &lt;/vl-progress-bar&gt;
-    
-                &lt;vl-progress-bar data-vl-numeric&gt;
-                    &lt;vl-progress-bar-step&gt;Stap 1/3: Aanvraag&lt;/vl-progress-bar-step&gt;
-                    &lt;vl-progress-bar-step data-vl-active&gt;Stap 2/3: Gegevens&lt;/vl-progress-bar-step&gt;
-                    &lt;vl-progress-bar-step&gt;Stap 3/3: Bevestigen&lt;/vl-progress-bar-step&gt;
-                &lt;/vl-progress-bar&gt;
-    
-                &lt;vl-progress-bar data-vl-numeric&gt;
-                    &lt;vl-progress-bar-step&gt;Stap 1/3: Aanvraag&lt;/vl-progress-bar-step&gt;
-                    &lt;vl-progress-bar-step&gt;Stap 2/3: Gegevens&lt;/vl-progress-bar-step&gt;
-                    &lt;vl-progress-bar-step data-vl-active&gt;Stap 3/3: Bevestigen&lt;/vl-progress-bar-step&gt;
-                &lt;/vl-progress-bar&gt;
-            </code>
-        </pre>
-        <div class="demo">
+    <vl-demo-page data-vl-webcomponent="vl-progress-bar-step"
+        data-vl-link="https://overheid.vlaanderen.be/webuniversum/v3/documentation/components/vl-ui-progress-bar">
+        <vl-demo data-vl-title="Progress bar active">
             <vl-progress-bar data-vl-numeric>
                 <vl-progress-bar-step>Stap 1/3: Aanvraag</vl-progress-bar-step>
                 <vl-progress-bar-step>Stap 2/3: Gegevens</vl-progress-bar-step>
@@ -70,8 +38,8 @@
                 <vl-progress-bar-step>Stap 2/3: Gegevens</vl-progress-bar-step>
                 <vl-progress-bar-step data-vl-active>Stap 3/3: Bevestigen</vl-progress-bar-step>
             </vl-progress-bar>
-        </div>
-    </div>
+        </vl-demo>
+    </vl-demo-page>
 </body>
 
 </html>
