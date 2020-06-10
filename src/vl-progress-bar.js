@@ -10,7 +10,6 @@ import {VlProgressBarStep} from './vl-progress-bar-step.js';
  * @classdesc Gebruik de progress-bar component om de vooruitgang te laten zien van een proces dat uit verschillende stappen bestaat.
  *
  * @extends HTMLElement
- * @mixin vlElement
  *
  * @property {boolean} data-vl-numeric - Attribuut zorgt ervoor dat er nummers getoond worden in de progress bar per stap.
  *
