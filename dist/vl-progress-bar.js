@@ -27,7 +27,7 @@ export class VlProgressBar extends vlElement(HTMLElement) {
   constructor() {
     super(`
             <style>
-                @import /node_modules/vl-ui-progress-bar/dist/style.css;
+                @import '/node_modules/vl-ui-progress-bar/dist/style.css';
                 @import '/node_modules/vl-ui-tooltip/dist/style.css';
             </style>
             <div class="vl-progress-bar"></div>

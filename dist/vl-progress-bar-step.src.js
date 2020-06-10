@@ -1,4 +1,4 @@
-import {vlElement, define} from vl-ui-core;
+import {vlElement, define} from 'vl-ui-core';
 
 /**
  * VlProgressBarStep

@@ -1,7 +1,7 @@
-import {vlElement, define} from vl-ui-core;
-import @govflanders/vl-ui-util/dist/js/util.js;
-import @govflanders/vl-ui-progress-bar/dist/js/progress-bar.js;
-import vl-ui-tooltip;
+import {vlElement, define} from 'vl-ui-core';
+import '@govflanders/vl-ui-util/dist/js/util.js';
+import '@govflanders/vl-ui-progress-bar/dist/js/progress-bar.js';
+import 'vl-ui-tooltip';
 import {VlProgressBarStep} from './vl-progress-bar-step.js';
 
 /**
