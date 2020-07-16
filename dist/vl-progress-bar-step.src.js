@@ -6,7 +6,6 @@ import {vlElement, define} from 'vl-ui-core';
  * @classdesc Onderdeel van de progress-bar die een stap voorstelt van een proces dat uit verschillende stappen bestaat.
  *
  * @extends HTMLElement
- * @mixin vlElement
  *
  * @property {boolean} data-vl-active - Attribuut wordt gebruikt om aan te geven dat de stap actief is.
  *
