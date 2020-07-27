@@ -20,7 +20,10 @@
     </template>
   </test-fixture>
 
-  <script>
+  <script type="module">
+    import {awaitUntil} from '/node_modules/vl-ui-core/dist/vl-core.js';
+    import {VlProgressBarStep} from '../../src/vl-progress-bar-step.js';
+
     suite('<vl-progress-bar>', () => {
       const should = chai.should();
 
@@ -90,6 +93,22 @@
       test('de stappen button elementen kunnen opgevraagd worden', () => {
         const progressBar = fixture('vl-progress-bar-fixture');
         assert.deepEqual(progressBar.shadowRoot.querySelectorAll('.vl-progress-bar button'), progressBar.buttons);
+      });
+
+      test('een step met disabled attribuut zal een default cursor tonen bij een hover over het button element', (done) => {
+        const progressBar = fixture('vl-progress-bar-fixture');
+        setTimeout(() => {
+          const steps = progressBar.shadowRoot.querySelectorAll('.vl-progress-bar__step');
+          const button = steps[0].querySelector(VlProgressBarStep._buttonSelector);
+          awaitUntil(() => getComputedStyle(button).cursor == 'pointer').then(() => {
+            assert.equal(getComputedStyle(button).cursor, 'pointer');
+            steps[0].setAttribute('disabled', '');
+            assert.equal(getComputedStyle(button).cursor, 'default');
+            steps[0].removeAttribute('disabled');
+            assert.equal(getComputedStyle(button).cursor, 'pointer');
+            done();
+          });
+        });
       });
     });
   </script>

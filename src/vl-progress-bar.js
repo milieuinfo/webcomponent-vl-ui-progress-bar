@@ -25,12 +25,12 @@ export class VlProgressBar extends vlElement(HTMLElement) {
 
   constructor() {
     super(`
-            <style>
-                @import '/src/style.css';
-                @import '/node_modules/vl-ui-tooltip/dist/style.css';
-            </style>
-            <div class="vl-progress-bar"></div>
-        `);
+      <style>
+        @import '/src/style.css';
+        @import '/node_modules/vl-ui-tooltip/dist/style.css';
+      </style>
+      <div class="vl-progress-bar"></div>
+    `);
   }
 
   connectedCallback() {
@@ -45,11 +45,11 @@ export class VlProgressBar extends vlElement(HTMLElement) {
   }
 
   /**
-     * Zet een stap actief al dan niet met focus.
-     *
-     * @param {number} number - Het nummer van de stap die actief wordt.
-     * @param {boolean} focus - Focus bepaalt of de stap in de progress bar focus krijgt.
-     */
+   * Zet een stap actief al dan niet met focus.
+   *
+   * @param {number} number - Het nummer van de stap die actief wordt.
+   * @param {boolean} focus - Focus bepaalt of de stap in de progress bar focus krijgt.
+   */
   updateStep(number, focus) {
     this._activeStep.active = false;
     this._getStep(number - 1).active = true;
@@ -57,19 +57,19 @@ export class VlProgressBar extends vlElement(HTMLElement) {
   }
 
   /**
-     * Geeft de progress bar DOM
-     *
-     * @return {HTMLElement}
-     */
+   * Geeft de progress bar DOM
+   *
+   * @return {HTMLElement}
+   */
   get element() {
     return this._element;
   }
 
   /**
-     * Geeft van elke stap het button element.
-     *
-     * @return {HTMLElement[]}
-     */
+   * Geeft van elke stap het button element.
+   *
+   * @return {HTMLElement[]}
+   */
   get buttons() {
     return this._element.querySelectorAll(VlProgressBarStep._buttonSelector);
   }
