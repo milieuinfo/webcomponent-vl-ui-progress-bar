@@ -17,3 +17,7 @@
 // Components
 // ==========================================================================
 @import "vl-ui-progress-bar/src/scss/progress-bar";
+
+.vl-progress-bar__step[disabled] > button {
+    cursor: default;
+}
