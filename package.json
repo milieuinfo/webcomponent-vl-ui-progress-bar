@@ -39,17 +39,18 @@
 	"dependencies": {
 		"@govflanders/vl-ui-progress-bar": "^3.11.5",
 		"@govflanders/vl-ui-util": "^3.11.5",
-		"vl-ui-core": "milieuinfo/webcomponent-vl-ui-core#3.11.5",
-		"vl-ui-tooltip": "milieuinfo/webcomponent-vl-ui-tooltip#3.11.5"
+		"vl-ui-core": "^6.0.0",
+		"vl-ui-tooltip": "^3.0.7"
 	},
 	"peerDependencies": {
-		"vl-ui-core": "milieuinfo/webcomponent-vl-ui-core#3.11.5",
-		"vl-ui-tooltip": "milieuinfo/webcomponent-vl-ui-tooltip#3.11.5"
+		"vl-ui-core": "^6.0.0",
+		"vl-ui-tooltip": "^3.0.7"
 	},
 	"devDependencies": {
-		"vl-ui-action-group": "milieuinfo/webcomponent-vl-ui-action-group#3.11.5",
-		"vl-ui-button": "milieuinfo/webcomponent-vl-ui-button#3.11.5",
-		"vl-ui-grid": "milieuinfo/webcomponent-vl-ui-grid#3.11.5",
-		"vl-ui-util": "github:milieuinfo/webcomponent-vl-ui-util#3.11.5"
+		"vl-ui-action-group": "^3.0.6",
+		"vl-ui-button": "^5.0.6",
+		"vl-ui-grid": "^3.1.4",
+		"vl-ui-body": "^1.0.3",
+		"vl-ui-util": "^5.2.12"
 	}
 }
