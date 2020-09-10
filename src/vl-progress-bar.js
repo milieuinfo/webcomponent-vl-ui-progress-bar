@@ -2,7 +2,7 @@ import {vlElement, define} from '/node_modules/vl-ui-core/dist/vl-core.js';
 import '/node_modules/@govflanders/vl-ui-util/dist/js/util.js';
 import '/node_modules/@govflanders/vl-ui-progress-bar/dist/js/progress-bar.js';
 import '/node_modules/vl-ui-tooltip/dist/vl-tooltip.js';
-import {VlProgressBarStep} from './vl-progress-bar-step.js';
+import {VlProgressBarStep} from '/src/vl-progress-bar-step.js';
 
 /**
  * VlProgressBar
