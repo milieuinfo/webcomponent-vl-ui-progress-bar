@@ -48,9 +48,9 @@
 	},
 	"devDependencies": {
 		"vl-ui-action-group": "^3.0.6",
+		"vl-ui-body": "^1.0.3",
 		"vl-ui-button": "^5.0.6",
 		"vl-ui-grid": "^3.1.4",
-		"vl-ui-body": "^1.0.3",
-		"vl-ui-util": "^5.2.12"
+		"vl-ui-util": "^5.2.15"
 	}
 }
