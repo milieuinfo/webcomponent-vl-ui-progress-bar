@@ -1,10 +1,11 @@
-const {assert, driver} = require('vl-ui-core').Test.Setup;
+const {assert, getDriver} = require('vl-ui-core').Test.Setup;
 const VlProgressBarPage = require('./pages/vl-progress-bar.page');
 
 describe('vl-progress-bar', async () => {
-  const vlProgressBarPage = new VlProgressBarPage(driver);
+  let vlProgressBarPage;
 
   before(() => {
+    vlProgressBarPage = new VlProgressBarPage(getDriver());
     return vlProgressBarPage.load();
   });
 
