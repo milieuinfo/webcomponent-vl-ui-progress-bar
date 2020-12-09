@@ -37,20 +37,20 @@
 		"demo": "http-server"
 	},
 	"dependencies": {
-		"@govflanders/vl-ui-progress-bar": "^3.11.5",
-		"@govflanders/vl-ui-util": "^3.11.5",
-		"vl-ui-core": "^6.2.3",
-		"vl-ui-tooltip": "^3.0.8"
+		"@govflanders/vl-ui-progress-bar": "^3.12.3",
+		"@govflanders/vl-ui-util": "^3.12.3",
+		"vl-ui-core": "^7.0.1",
+		"vl-ui-tooltip": "^3.0.9"
 	},
 	"peerDependencies": {
-		"vl-ui-core": "^6.0.0",
-		"vl-ui-tooltip": "^3.0.7"
+		"vl-ui-core": "^7.0.1",
+		"vl-ui-tooltip": "^3.0.9"
 	},
 	"devDependencies": {
-		"vl-ui-action-group": "^3.1.0",
-		"vl-ui-body": "^1.0.5",
-		"vl-ui-button": "^5.0.6",
-		"vl-ui-grid": "^3.1.4",
-		"vl-ui-util": "^5.3.1"
+		"vl-ui-action-group": "^3.1.2",
+		"vl-ui-body": "^1.0.7",
+		"vl-ui-button": "^5.0.8",
+		"vl-ui-grid": "^3.1.6",
+		"vl-ui-util": "^5.3.4"
 	}
 }
