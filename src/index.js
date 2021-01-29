@@ -1,7 +1,1 @@
-import {VlProgressBar} from '../dist/vl-progress-bar.src.js';
-import {VlProgressBarStep} from '../dist/vl-progress-bar-step.src.js';
-
-export {
-  VlProgressBar,
-  VlProgressBarStep,
-};
+export * from '../dist/vl-progress-bar-all.src.js';
