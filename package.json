@@ -40,7 +40,7 @@
 		"@govflanders/vl-ui-progress-bar": "^3.12.3",
 		"@govflanders/vl-ui-util": "^3.12.3",
 		"vl-ui-core": "^7.1.1",
-		"vl-ui-tooltip": "^3.0.9"
+		"vl-ui-tooltip": "^3.0.10"
 	},
 	"peerDependencies": {
 		"vl-ui-core": "^7.1.0",
