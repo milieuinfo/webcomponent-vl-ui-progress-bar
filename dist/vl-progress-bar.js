@@ -1,6 +1,6 @@
 import {vlElement, define} from '/node_modules/vl-ui-core/dist/vl-core.js';
 import '/node_modules/@govflanders/vl-ui-util/dist/js/util.js';
-import '/node_modules/@govflanders/vl-ui-progress-bar/dist/js/progress-bar.js';
+import ProgressBar from '/node_modules/@govflanders/vl-ui-progress-bar/src/js/progress-bar.js';
 import '/node_modules/vl-ui-tooltip/dist/vl-tooltip.js';
 import {VlProgressBarStep} from '/node_modules/vl-ui-progress-bar/dist/vl-progress-bar-step.js';
 
@@ -36,8 +36,7 @@ export class VlProgressBar extends vlElement(HTMLElement) {
   connectedCallback() {
     this._observer = this.__observeChildElements(this._processSteps.bind(this));
     this._processSteps();
-    // eslint-disable-next-line new-cap
-    this._progressBar = new window['progress-bar'](this.constructor);
+    this._progressBar = new ProgressBar();
   }
 
   disconnectedCallback() {
